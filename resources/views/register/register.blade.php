@@ -10,8 +10,7 @@
         <button type="submit" class="bg-form-btn-color text-white font-black w-full py-5 mt-8 rounded-lg">SIGN
             UP</button>
     </form>
-    <p class="text-center pt-6"><span class="opacity-50">Don’t have an account?</span> <a
-            href="{{ route('login.get') }}" class="font-bold">Sign up for
-            free</a></p>
+    <p class="text-center pt-6 md:w-96"><span class="opacity-50">Already have an account?</span> <a
+            href="{{ route('login.get') }}" class="font-bold">Log In</a></p>
 
 </x-form-layout>

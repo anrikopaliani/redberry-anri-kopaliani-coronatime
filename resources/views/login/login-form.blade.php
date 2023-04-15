@@ -16,7 +16,7 @@
         <button type="submit" class="bg-form-btn-color mx-auto text-white font-black w-full py-5 rounded-lg">LOG
             IN</button>
     </form>
-    <p class="text-center pt-6"><span class="opacity-50">Don’t have an account?</span> <a
+    <p class="text-center pt-6 md:w-96"><span class="opacity-50">Don’t have an account?</span> <a
             href="{{ route('register.get') }}" class="font-bold">Sign up for
             free</a></p>
 
