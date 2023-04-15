@@ -6,7 +6,13 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'input-color-default': '#E6E6E7',
+        'brand-primary': "#2029F3",
+        'form-btn-color': "#0FBA68" 
+      }
+    },
   },
   plugins: [],
 }

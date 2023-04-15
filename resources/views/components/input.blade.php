@@ -1,7 +1,8 @@
 @props(['label', 'name', 'placeholder'])
 
-<div class=" py-16 flex flex-col">
-    <label for="{{ $name }}" class="bold text-base">{{ $label }}</label>
-    <input class="mt-2 border border-input-color px-6 py-4 w-96" type="text" id="{{ $name }}"
-        name="{{ $name }}" placeholder="{{ $placeholder }}">
+<div class=" flex flex-col  ">
+    <label for="{{ $name }}" class=" text-base font-bold">{{ $label }}</label>
+    <input
+        class="mt-2 w-full border border-input-color-default  rounded-lg focus:border-brand-primary focus:outline-none px-6 py-4 "
+        type="text" id="{{ $name }}" name="{{ $name }}" placeholder="{{ $placeholder }}">
 </div>
