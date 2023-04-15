@@ -12,7 +12,7 @@
 
 <body>
     <div class="w-full  flex justify-between">
-        <div>
+        <div class=" px-44 py-10">
             {{ $slot }}
         </div>
 
