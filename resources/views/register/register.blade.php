@@ -1,8 +1,8 @@
 <x-form-layout>
     <x-header />
-    <h3 class=" mt-14 text-2xl font-bold">Welcome to Coronatime</h3>
+    <h3 class=" mt-4 md:mt-14 text-2xl font-bold">Welcome to Coronatime</h3>
     <p class="pb-2 pt-4 opacity-50">Please enter required info to sign up</p>
-    <form class="w-96">
+    <form class="md:w-96">
         <x-input label="{{ 'Username' }}" name="username" placeholder="Enter unique username" />
         <x-input label="{{ 'Email' }}" name="email" type="email" placeholder="Enter your email" />
         <x-input label="{{ 'Password' }}" name="password" type="password" placeholder="Fill in password" />
