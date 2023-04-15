@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    <div class="w-full  flex justify-between">
-        <div class=" px-44 py-10">
+    <div class="w-full   flex justify-between">
+        <div class=" w-full px-4 md:px-44 md:py-10">
             {{ $slot }}
         </div>
 
-        <img class=" h-screen" src="{{ URL::asset('images/Rectangle 1.jpg') }}" alt="">
+        <img class="hidden md:block h-screen" src="{{ URL::asset('images/Rectangle 1.jpg') }}" alt="">
 
     </div>
 
