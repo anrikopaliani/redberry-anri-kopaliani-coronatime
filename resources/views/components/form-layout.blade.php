@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="w-full   flex justify-between">
+    <div class="w-full   flex justify-between h-screen">
         <div class=" w-full px-4 md:px-44 md:py-10">
             {{ $slot }}
         </div>
