@@ -20,6 +20,7 @@ Route::get('language/{locale}', [StaticLanguageController::class, 'index']);
 
 Route::middleware('guest')->group(function () {
 	Route::get('/', [LoginController::class, 'index'])->name('login.get');
+	Route::post('/login', [LoginController::class, 'store'])->name('login.post');
 	Route::get('/register', [RegisterController::class, 'index'])->name('register.get');
 	Route::post('/register', [RegisterController::class, 'store'])->name('register.post');
 });
