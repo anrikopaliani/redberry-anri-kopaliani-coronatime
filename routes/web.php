@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\StaticLanguageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('language/{locale}', [StaticLanguageController::class, 'index']);
 
 Route::get('/', [LoginController::class, 'index'])->name('login.get');
 Route::get('/register', [RegisterController::class, 'index'])->name('register.get');
