@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('language/{locale}', [StaticLanguageController::class, 'index']);
+Route::view('/dashboard', 'dashboard.dashboard');
 
 Route::get('/email/verify', function () {
 	return view('components.verify-email');
@@ -26,7 +27,7 @@ Route::get('/email/verify', function () {
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
 	$request->fulfill();
 
-	return redirect('/dashboard');
+	return redirect('/');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::middleware('guest')->group(function () {
@@ -35,5 +36,3 @@ Route::middleware('guest')->group(function () {
 	Route::get('/register', [RegisterController::class, 'index'])->name('register.get');
 	Route::post('/register', [RegisterController::class, 'store'])->name('register.post');
 });
-
-Route::view('/dashboard', 'dashboard.dashboard');

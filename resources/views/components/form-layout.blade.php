@@ -7,10 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Coronatime</title>
 
+    <style>
+
+    </style>
+
     @vite('resources/css/app.css')
 </head>
 
-<body>
+<body class="font-inter">
     <div class="w-full   flex justify-between h-screen">
         <div class=" w-full px-4 md:px-44 md:py-10">
             {{ $slot }}

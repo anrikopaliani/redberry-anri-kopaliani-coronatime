@@ -21,6 +21,8 @@ class RegisterController extends Controller
 
 		event(new Registered($user));
 
+		$user->markEmailAsVerified();
+
 		return view('components.verify-email');
 	}
 }
