@@ -21,5 +21,6 @@
     "Don’t have an account" : "არ გაქვთ ანგარიში",
     "Sign up for free" : "დარეგისტრირდით უფასოდ",
     "en": "ინგლ" ,
-    "We have sent you a confirmation email" : "შეამოწმეთ თქვენი ელ-ფოსტა"
+    "We have sent you a confirmation email" : "შეამოწმეთ თქვენი ელ-ფოსტა",
+    "Username or email not available in database": "მომხმარებელი ვერ მოიძებნა"
 }

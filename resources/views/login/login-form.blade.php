@@ -5,7 +5,8 @@
     <form class="[&>*:nth-child(2)]:pt-6   md:w-3/4 w-full " action="{{ route('login.post') }}" method="POST">
         @csrf
         <x-input label="{{ __('Username') }}" name="username" placeholder="{{ __('Enter unique username or email') }}" />
-        <x-input label="{{ __('Password') }}" name="password" placeholder="{{ __('Fill in password') }}" />
+        <x-input label="{{ __('Password') }}" name="password" type="password"
+            placeholder="{{ __('Fill in password') }}" />
         <div class=" w-full flex justify-between py-6 items-center">
             <div>
                 <input type="checkbox" class="focus:accent-form-btn-color active:accent-form-btn-colo text-white"

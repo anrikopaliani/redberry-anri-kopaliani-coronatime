@@ -14,6 +14,11 @@
                 class="mt-2 w-full @error('password') border-red-500 @enderror border border-input-color-default  rounded-lg focus:border-brand-primary focus:outline-none px-6 py-4 placeholder:text-sm"
                 type="password" value="{{ old('password_confirmation') }}" id="password_confirmation"
                 name="password_confirmation" placeholder="{{ __('Repeat Password') }}">
+            @error('password_confirmation')
+                <p class="text-red-500 text-xs flex items-center"><img class="pr-1" width="20" height="20"
+                        src="{{ URL::asset('images/error.png') }}" alt="error">
+                    {{ $message }}</p>
+            @enderror
         </div>
         <button type="submit"
             class="bg-form-btn-color text-white font-black w-full py-5 mt-8 rounded-lg">{{ __('SIGN UP') }}</button>
