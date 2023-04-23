@@ -17,11 +17,13 @@ class RegisterController extends Controller
 	{
 		$validated = $request->validated();
 
-		$user = User::create($validated);
+		$user = User::create([
+			'username' => $validated['username'],
+			'email'    => $validated['email'],
+			'password' => bcrypt($validated['password']),
+		]);
 
 		event(new Registered($user));
-
-		$user->markEmailAsVerified();
 
 		return view('components.verify-email');
 	}

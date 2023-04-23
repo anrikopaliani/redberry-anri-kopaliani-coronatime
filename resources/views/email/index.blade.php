@@ -9,7 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap');
 
         body {
-            height: 100vh;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
