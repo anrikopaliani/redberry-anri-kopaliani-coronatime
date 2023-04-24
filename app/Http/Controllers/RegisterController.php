@@ -25,6 +25,6 @@ class RegisterController extends Controller
 
 		event(new Registered($user));
 
-		return view('components.verify-email');
+		return redirect()->route('verification.notice');
 	}
 }

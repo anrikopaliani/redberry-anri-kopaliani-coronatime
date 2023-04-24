@@ -24,10 +24,15 @@ Route::get('/email/verify', function () {
 	return view('components.verify-email');
 })->middleware('auth')->name('verification.notice');
 
+Route::get('/email_confirmed', function () {
+	auth()->logout();
+	return view('components.email-confirmed');
+})->name('confirmed');
+
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
 	$request->fulfill();
 
-	return redirect('/');
+	return redirect()->route('confirmed');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::middleware('guest')->group(function () {

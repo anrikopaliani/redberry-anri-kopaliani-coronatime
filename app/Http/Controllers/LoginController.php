@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreLoginRequest;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -19,6 +18,7 @@ class LoginController extends Controller
 		$username_or_email = $validated['username'];
 		$password = $validated['password'];
 		$user = User::where('username', $username_or_email)->first();
+		$remember_me = (!empty($request->remember_device)) ? true : false;
 
 		if (empty($user)) {
 			$user = User::where('email', $username_or_email)->first();
@@ -30,7 +30,7 @@ class LoginController extends Controller
 			])->onlyInput('username');
 		}
 
-		if (Auth::attempt(['username' => $user->username, 'email' => $user->email, 'password' => $password])) {
+		if (auth()->attempt(['username' => $user->username, 'email' => $user->email, 'password' => $password], $remember_me)) {
 			return redirect('/dashboard');
 		}
 

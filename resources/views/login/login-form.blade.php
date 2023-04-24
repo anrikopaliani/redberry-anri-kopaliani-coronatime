@@ -10,8 +10,8 @@
         <div class=" w-full flex justify-between py-6 items-center">
             <div>
                 <input type="checkbox" class="focus:accent-form-btn-color active:accent-form-btn-colo text-white"
-                    name="remember_device" id="remember_device">
-                <label for="remember_device"
+                    name="remember_me" value="1" id="remember_me">
+                <label for="remember_me"
                     class=" font-semibold  md:text-base text-xs">{{ __('Remember this device') }}</label>
             </div>
             <a href="#" class="text-brand-primary font-semibold  md:text-base text-xs">{{ __('Forgot password') }}
