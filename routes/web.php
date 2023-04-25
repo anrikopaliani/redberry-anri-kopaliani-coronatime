@@ -21,12 +21,12 @@ Route::get('language/{locale}', [StaticLanguageController::class, 'index']);
 Route::view('/dashboard', 'dashboard.dashboard');
 
 Route::get('/email/verify', function () {
-	return view('components.verify-email');
+	return view('email.verify-email');
 })->middleware('auth')->name('verification.notice');
 
 Route::get('/email_confirmed', function () {
 	auth()->logout();
-	return view('components.email-confirmed');
+	return view('email.email-confirmed');
 })->name('confirmed');
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {

@@ -25,6 +25,8 @@ class RegisterController extends Controller
 
 		event(new Registered($user));
 
+		auth()->attempt($validated);
+
 		return redirect()->route('verification.notice');
 	}
 }
