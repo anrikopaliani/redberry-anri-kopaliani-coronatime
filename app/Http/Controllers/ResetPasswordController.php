@@ -27,16 +27,14 @@ class ResetPasswordController extends Controller
 			$request->only('email')
 		);
 
-		$request->session()->put('email', $validated['email']);
 		return $status === Password::RESET_LINK_SENT
-					// ? back()->with(['status' => __($status)])
 					? redirect()->route('password.notice')
 					: back()->withErrors(['email' => __($status)]);
 	}
 
 	public function create(string $token)
 	{
-		return view('password.reset-password', ['token' => $token, 'email' => session('email')]);
+		return view('password.reset-password', ['token' => $token, 'email' => request()->query('email')]);
 	}
 
 	public function show(): View
