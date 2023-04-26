@@ -4,7 +4,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\StaticLanguageController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,20 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('language/{locale}', [StaticLanguageController::class, 'index']);
 Route::view('/dashboard', 'dashboard.dashboard')->middleware('auth');
 
-Route::get('/email/verify', function () {
-	return view('email.verify-email');
-})->middleware('auth')->name('verification.notice');
+Route::get('/email/verify', [VerifyEmailController::class, 'index'])->middleware('auth')->name('verification.notice');
 
-Route::get('/email_confirmed', function () {
-	auth()->logout();
-	return view('email.email-confirmed');
-})->name('confirmed');
+Route::get('/email_confirmed', [VerifyEmailController::class, 'show'])->name('confirmed');
 
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-	$request->fulfill();
-
-	return redirect()->route('confirmed');
-})->middleware(['auth', 'signed'])->name('verification.verify');
+Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, 'store'])->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::middleware('guest')->group(function () {
 	Route::get('/', [LoginController::class, 'index'])->name('login.get');
@@ -46,6 +37,5 @@ Route::middleware('guest')->group(function () {
 	Route::post('/forgot-password', [ResetPasswordController::class, 'store'])->name('password.email');
 	Route::get('/password/reset/verify', [ResetPasswordController::class, 'show'])->name('password.notice');
 	Route::get('/reset-password/{token}', [ResetPasswordController::class, 'create'])->name('password.reset');
-
 	Route::post('/reset-password', [ResetPasswordController::class, 'update'])->name('password.update');
 });
