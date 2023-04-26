@@ -17,7 +17,17 @@
             font-family: 'Inter';
         }
 
+        h1 {
+            font-size: 25px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
         img {
+            width: 60%;
+            height: 40%;
             margin: 20px;
         }
 
@@ -33,10 +43,18 @@
             text-align: center;
         }
 
-        @media (max-width: 700px) {
-            img {
-                width: 70%;
-                height: 40%;
+        @media (max-width:700px) {
+
+            h1 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            a {
+                width: 100%;
             }
         }
     </style>
@@ -45,9 +63,9 @@
 
 <body>
     <img src="{{ URL::asset('images/email-image.png') }}" alt="">
-    <h1>Confirmation email</h1>
-    <p>click this button to verify your email</p>
-    <a href="{{ $url }}">VERIFY EMAIL</a>
+    <h1>{{ $title }}</h1>
+    <p>{{ $description }}</p>
+    <a href="{{ $url }}">{{ $buttonText }}</a>
 
 </body>
 
