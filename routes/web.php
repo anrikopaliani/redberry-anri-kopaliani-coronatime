@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\StaticLanguageController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('language/{locale}', [StaticLanguageController::class, 'index']);
-Route::view('/dashboard', 'dashboard.dashboard');
+Route::view('/dashboard', 'dashboard.dashboard')->middleware('auth');
 
 Route::get('/email/verify', function () {
 	return view('email.verify-email');
@@ -40,4 +41,11 @@ Route::middleware('guest')->group(function () {
 	Route::post('/login', [LoginController::class, 'store'])->name('login.post');
 	Route::get('/register', [RegisterController::class, 'index'])->name('register.get');
 	Route::post('/register', [RegisterController::class, 'store'])->name('register.post');
+
+	Route::get('/forgot-password', [ResetPasswordController::class, 'index'])->name('password.request');
+	Route::post('/forgot-password', [ResetPasswordController::class, 'store'])->name('password.email');
+	Route::get('/password/reset/verify', [ResetPasswordController::class, 'show'])->name('password.notice');
+	Route::get('/reset-password/{token}', [ResetPasswordController::class, 'create'])->name('password.reset');
+
+	Route::post('/reset-password', [ResetPasswordController::class, 'update'])->name('password.update');
 });

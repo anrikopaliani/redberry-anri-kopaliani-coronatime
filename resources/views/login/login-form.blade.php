@@ -14,7 +14,8 @@
                 <label for="remember_me"
                     class=" font-semibold  md:text-base text-xs">{{ __('Remember this device') }}</label>
             </div>
-            <a href="#" class="text-brand-primary font-semibold  md:text-base text-xs">{{ __('Forgot password') }}
+            <a href="{{ route('password.request') }}"
+                class="text-brand-primary font-semibold  md:text-base text-xs">{{ __('Forgot password') }}
                 ?</a>
         </div>
         <button type="submit"
