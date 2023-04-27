@@ -4,15 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreLoginRequest;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 
 class LoginController extends Controller
 {
-	public function index()
-	{
-		return view('login.login-form');
-	}
-
-	public function store(StoreLoginRequest $request)
+	public function store(StoreLoginRequest $request): RedirectResponse
 	{
 		$validated = $request->validated();
 		$username_or_email = $validated['username'];

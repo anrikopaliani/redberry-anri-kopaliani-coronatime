@@ -28,14 +28,14 @@ Route::get('/email_confirmed', [VerifyEmailController::class, 'show'])->name('co
 Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, 'store'])->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::middleware('guest')->group(function () {
-	Route::get('/', [LoginController::class, 'index'])->name('login.get');
+	Route::view('/', 'login.login-form')->name('login.get');
 	Route::post('/login', [LoginController::class, 'store'])->name('login.post');
-	Route::get('/register', [RegisterController::class, 'index'])->name('register.get');
+	Route::view('/register', 'register.register')->name('register.get');
 	Route::post('/register', [RegisterController::class, 'store'])->name('register.post');
 
-	Route::get('/forgot-password', [ResetPasswordController::class, 'index'])->name('password.request');
+	Route::view('/forgot-password', 'password.forgot-password')->name('password.request');
 	Route::post('/forgot-password', [ResetPasswordController::class, 'store'])->name('password.email');
-	Route::get('/password/reset/verify', [ResetPasswordController::class, 'show'])->name('password.notice');
+	Route::view('/password/reset/verify', 'email.verify-email')->name('password.notice');
 	Route::get('/reset-password/{token}', [ResetPasswordController::class, 'create'])->name('password.reset');
 	Route::post('/reset-password', [ResetPasswordController::class, 'update'])->name('password.update');
 });

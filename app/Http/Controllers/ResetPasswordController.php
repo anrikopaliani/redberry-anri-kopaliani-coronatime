@@ -14,11 +14,6 @@ use Illuminate\Support\Str;
 
 class ResetPasswordController extends Controller
 {
-	public function index(): View
-	{
-		return view('password.forgot-password');
-	}
-
 	public function store(ResetPasswordRequest $request): RedirectResponse
 	{
 		$validated = $request->validated();
@@ -32,17 +27,12 @@ class ResetPasswordController extends Controller
 					: back()->withErrors(['email' => __($status)]);
 	}
 
-	public function create(string $token)
+	public function create(string $token): View
 	{
 		return view('password.reset-password', ['token' => $token, 'email' => request()->query('email')]);
 	}
 
-	public function show(): View
-	{
-		return view('email.verify-email');
-	}
-
-	public function update(UpdatePasswordRequest $request)
+	public function update(UpdatePasswordRequest $request): RedirectResponse
 	{
 		$validated = $request->validated();
 
