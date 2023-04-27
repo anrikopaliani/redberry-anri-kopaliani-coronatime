@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::controller(VerifyEmailController::class)->group(function () {
-	Route::get('/email_confirmed', 'show')->name('confirmed');
+	Route::get('/email_confirmed', 'emailConfirmed')->name('confirmed');
 	Route::get('/email/verify/{id}/{hash}', 'store')->middleware(['auth', 'signed'])->name('verification.verify');
 });
 

@@ -15,7 +15,7 @@ class VerifyEmailController extends Controller
 		return redirect()->route('confirmed');
 	}
 
-	public function show(): View
+	public function emailConfirmed(): View
 	{
 		auth()->logout();
 		return view('email.email-confirmed');
