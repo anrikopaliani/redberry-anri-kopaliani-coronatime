@@ -8,11 +8,6 @@ use Illuminate\View\View;
 
 class VerifyEmailController extends Controller
 {
-	public function index(): View
-	{
-		return view('email.verify-email');
-	}
-
 	public function store(EmailVerificationRequest $request): RedirectResponse
 	{
 		$request->fulfill();
