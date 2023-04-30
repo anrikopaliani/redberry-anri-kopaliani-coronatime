@@ -1,4 +1,4 @@
-<div x-data="{ show: false }">
+<div x-data="{ show: false }" class="pr-11 md:pr-0">
     <button class="flex justify-between" @click="show = !show">
         {{ app()->getLocale() == 'en' ? 'English' : 'Georgian' }}
         <img width="9.6" height="4.8" class="ml-2"

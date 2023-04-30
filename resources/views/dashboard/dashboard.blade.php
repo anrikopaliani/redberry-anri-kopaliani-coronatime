@@ -1,1 +1,1 @@
-<h1>dsd</h1>
+<x-dashboard-layout></x-dashboard-layout>
