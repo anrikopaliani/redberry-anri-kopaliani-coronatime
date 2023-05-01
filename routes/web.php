@@ -23,7 +23,9 @@ Route::get('language/{locale}', [StaticLanguageController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
 	Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-	Route::get('/dashboard', [DashboardController::class, 'index']);
+	Route::prefix('/dashboard')->group(function () {
+		Route::get('/', [DashboardController::class, 'worldwide']);
+	});
 	Route::view('/email/verify', 'email.verify-email')->name('verification.notice');
 });
 
