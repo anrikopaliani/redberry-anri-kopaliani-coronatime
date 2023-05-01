@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\StaticLanguageController;
 use App\Http\Controllers\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('language/{locale}', [StaticLanguageController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
-	Route::view('/dashboard', 'dashboard.dashboard');
+	Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+	Route::prefix('/dashboard')->group(function () {
+		Route::get('/', [DashboardController::class, 'worldwide']);
+	});
 	Route::view('/email/verify', 'email.verify-email')->name('verification.notice');
 });
 

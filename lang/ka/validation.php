@@ -7,7 +7,7 @@ return [
 	'min'        => [
 		'string'  => 'მინიმუმ 3 სიმბოლო',
 	],
-	'unique' => ':atrribute უკვე არსებობს',
+	'unique' => ':attribute უკვე არსებობს',
 
 	'attributes' => [
 		'username'              => 'მომხმარებლის სახელი',

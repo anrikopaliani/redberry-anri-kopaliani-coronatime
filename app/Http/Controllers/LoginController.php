@@ -34,4 +34,10 @@ class LoginController extends Controller
 			'password' => 'Password is incorrect',
 		])->onlyInput('password');
 	}
+
+	public function logout(): RedirectResponse
+	{
+		auth()->logout();
+		return redirect('/');
+	}
 }
