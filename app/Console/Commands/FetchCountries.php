@@ -29,24 +29,62 @@ class FetchCountries extends Command
 	public function handle()
 	{
 		$countries = json_decode(Http::connectTimeout(100)->get('https://devtest.ge/countries')->body());
+		// foreach ($countries as $country) {
+		// 	Country::updateOrCreate(
+		// 		['code' => $country->code],
+		// 		['name' => json_encode($country->name)]
+		// 	);
+
+		// 	$stats = json_decode(Http::connectTimeout(100)->post('https://devtest.ge/get-country-statistics', [
+		// 		'code' => $country->code,
+		// 	]));
+
+		// 	CountryStatistic::updateOrCreate(
+		// 		['code'       => $stats->code],
+		// 		['country'    => $stats->country,
+		// 			'confirmed'  => $stats->confirmed,
+		// 			'critical'   => $stats->critical,
+		// 			'deaths'     => $stats->deaths,
+		// 			'recovered'  => $stats->recovered],
+		// 	);
+		// }
+
 		foreach ($countries as $country) {
-			Country::updateOrCreate([
-				'code' => $country->code,
-				'name' => json_encode($country->name),
-			]);
+			$countryExists = Country::where('code', $country->code)->first();
+
+			if (is_null($countryExists)) {
+				Country::create([
+					'code' => $country->code,
+					'name' => json_encode($country->name),
+				]);
+			} else {
+				$countryExists->name = json_encode($country->name);
+				$countryExists->update();
+			}
 
 			$stats = json_decode(Http::connectTimeout(100)->post('https://devtest.ge/get-country-statistics', [
 				'code' => $country->code,
 			]));
 
-			CountryStatistic::updateOrCreate([
-				'code'      => $stats->code,
-				'country'   => $stats->country,
-				'confirmed' => $stats->confirmed,
-				'critical'  => $stats->critical,
-				'deaths'    => $stats->deaths,
-				'recovered' => $stats->recovered,
-			]);
+			$statExists = CountryStatistic::where('code', $country->code)->first();
+
+			if (is_null($statExists)) {
+				CountryStatistic::create([
+					'code'      => $stats->code,
+					'country'   => $stats->country,
+					'confirmed' => $stats->confirmed,
+					'recovered' => $stats->recovered,
+					'deaths'    => $stats->deaths,
+					'critical'  => $stats->critical,
+				]);
+			} else {
+				$statExists->confirmed = $stats->confirmed;
+				$statExists->recovered = $stats->recovered;
+				$statExists->deaths = $stats->deaths;
+				$statExists->critical = $stats->critical;
+
+				$statExists->update();
+			}
 		}
 	}
 }
