@@ -19,8 +19,8 @@
 
 </head>
 
-<body class="{{ app()->getLocale() == 'en' ? 'font-inter' : '' }} px-4 md:px-28 h-full">
-    <header class="pt-5 flex justify-between items-center w-full h-1/5">
+<body class="{{ app()->getLocale() == 'en' ? 'font-inter' : '' }}  md:px-28 h-full">
+    <header class="pt-5 flex justify-between items-center w-full h-1/5 px-4 md:px-0">
         <img src="{{ URL::asset('images/coronatime.png') }}" alt="">
         <div class="flex justify-between md:items-center">
             @include('partials.langauge_switcher')

@@ -1,5 +1,5 @@
 <x-dashboard-layout>
-    <div class="mt-16">
+    <div class="mt-16 px-4 md:px-0">
         <h2 class="text-xl md:text-2xl font-extrabold">{{ __('messages.Worldwide Statistics') }}</h2>
         <div class="flex pt-10">
             <a class="border-b-2 pb-4 border-solid border-black "
