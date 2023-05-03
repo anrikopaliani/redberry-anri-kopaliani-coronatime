@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
 	protected function schedule(Schedule $schedule): void
 	{
 		// $schedule->command('inspire')->hourly();
-		$schedule->command('coronatime:fetch-countries')->daily();
+		$schedule->command('coronatime:fetch-countries --force')->daily();
 	}
 
 	/**
