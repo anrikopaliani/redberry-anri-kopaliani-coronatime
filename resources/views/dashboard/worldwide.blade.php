@@ -2,8 +2,9 @@
     <div class="mt-16">
         <h2 class="text-xl md:text-2xl font-extrabold">{{ __('messages.Worldwide Statistics') }}</h2>
         <div class="flex pt-10">
-            <a class="border-b-2 pb-4 border-solid border-black " href="#">{{ __('messages.Worldwide') }}</a>
-            <a class="ml-16 pb-4" href="#">{{ __('messages.By Country') }}</a>
+            <a class="border-b-2 pb-4 border-solid border-black "
+                href="{{ route('worldwide') }}">{{ __('messages.Worldwide') }}</a>
+            <a class="ml-16 pb-4" href="{{ route('countries-list') }}">{{ __('messages.By Country') }}</a>
         </div>
         <div class="grid grid-cols-6 gap-6 mt-10">
             <div class="h-64 col-span-6 md:col-span-2 bg-brand-primary bg-opacity-0.08 rounded-2xl">

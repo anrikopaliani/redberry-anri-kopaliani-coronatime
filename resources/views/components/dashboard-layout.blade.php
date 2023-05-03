@@ -8,6 +8,15 @@
     <title>Coronatime</title>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @vite('resources/css/app.css')
+
+    <style>
+        .icon-input {
+            background: url('../images/search-icon.svg') no-repeat center left;
+            background-position: 24.67px;
+            padding-left: 60px;
+        }
+    </style>
+
 </head>
 
 <body class="{{ app()->getLocale() == 'en' ? 'font-inter' : '' }} px-4 md:px-28 h-full">
