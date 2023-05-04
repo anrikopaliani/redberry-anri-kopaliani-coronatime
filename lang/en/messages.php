@@ -33,4 +33,7 @@ return [
 	'New cases'                                  => 'New cases',
 	'Recovered'                                  => 'Recovered',
 	'Deaths'                                     => 'Deaths',
+	'Statistics by country'                      => 'Statistics by country',
+	'Location'                                   => 'Location',
+	'recovered'                                  => 'recovered',
 ];

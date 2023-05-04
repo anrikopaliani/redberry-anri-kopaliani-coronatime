@@ -19,6 +19,12 @@ module.exports = {
       },
       backgroundOpacity: {
         '0.08': '0.08'
+      },
+      minHeight: {
+        '49': '49px'
+      },
+      spacing: {
+        '650': '650px'
       }
     },
   },
