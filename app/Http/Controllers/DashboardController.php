@@ -35,32 +35,26 @@ class DashboardController extends Controller
 			$filtered = $countryDetails;
 		}
 
-		if (request('location') === 'asc') {
-			$filtered = $filtered->sortBy(['country', 'asc']);
-		}
-		if (request('location') === 'desc') {
-			$filtered = $filtered->sortByDesc('country');
-		}
+		$sortingName = '';
+		$requestFilterdParam = '';
 
-		if (request('cases') === 'asc') {
-			$filtered = $filtered->sortBy(['confirmed', 'asc']);
+		if (request()->has('location')) {
+			$sortingName = 'country';
+			$requestFilterdParam = 'location';
+		} elseif (request()->has('cases')) {
+			$sortingName = 'confirmed';
+			$requestFilterdParam = 'cases';
+		} elseif (request()->has('deaths')) {
+			$sortingName = 'deaths';
+			$requestFilterdParam = 'deaths';
+		} elseif (request()->has('recovered')) {
+			$sortingName = 'recovered';
+			$requestFilterdParam = 'recovered';
 		}
-		if (request('cases') === 'desc') {
-			$filtered = $filtered->sortByDesc('confirmed');
-		}
-
-		if (request('deaths') === 'asc') {
-			$filtered = $filtered->sortBy(['deaths', 'asc']);
-		}
-		if (request('deaths') === 'desc') {
-			$filtered = $filtered->sortByDesc('deaths');
-		}
-
-		if (request('recovered') === 'asc') {
-			$filtered = $filtered->sortBy(['recovered', 'asc']);
-		}
-		if (request('recovered') === 'desc') {
-			$filtered = $filtered->sortByDesc('recovered');
+		if (request($requestFilterdParam) === 'asc') {
+			$filtered = $filtered->sortBy([$sortingName, 'asc']);
+		} else {
+			$filtered = $filtered->sortByDesc($sortingName);
 		}
 
 		return view('dashboard.countries', ['list' => $filtered->all(), 'countryDetails' => $countryDetails]);
