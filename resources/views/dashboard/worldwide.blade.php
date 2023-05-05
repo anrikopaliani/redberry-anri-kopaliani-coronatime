@@ -2,7 +2,7 @@
     <div class="mt-16 px-4 md:px-0">
         <h2 class="text-xl md:text-2xl font-extrabold">{{ __('messages.Worldwide Statistics') }}</h2>
         <div class="flex pt-10">
-            <a class="border-b-2 pb-4 border-solid border-black "
+            <a class="border-b-2 pb-4 border-solid font-bold border-black "
                 href="{{ route('worldwide') }}">{{ __('messages.Worldwide') }}</a>
             <a class="ml-16 pb-4" href="{{ route('countries-list') }}">{{ __('messages.By Country') }}</a>
         </div>

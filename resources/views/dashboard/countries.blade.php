@@ -4,7 +4,7 @@
 
         <div class="flex pt-10">
             <a class="pb-4 text-sm md:text-base " href="{{ route('worldwide') }}">{{ __('messages.Worldwide') }}</a>
-            <a class="ml-16 pb-4 border-solid border-b-2    border-black text-sm md:text-base "
+            <a class="ml-16 pb-4 border-solid border-b-2  font-bold  border-black text-sm md:text-base "
                 href="{{ route('countries-list') }}">{{ __('messages.By Country') }}</a>
         </div>
     </div>
