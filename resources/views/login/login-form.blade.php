@@ -6,7 +6,7 @@
         @csrf
         <x-input label="{{ __('messages.Username') }}" name="username"
             placeholder="{{ __('messages.Enter unique username or email') }}" />
-        <x-input label="{{ __('messages.Password') }}" name="password" type="password"
+        <x-input class="mt-6" label="{{ __('messages.Password') }}" name="password" type="password"
             placeholder="{{ __('messages.Fill in password') }}" />
         <div class=" w-full flex justify-between py-6 items-center">
             <div>

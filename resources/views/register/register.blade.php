@@ -4,19 +4,20 @@
     <p class="pb-2 pt-4 opacity-50">{{ __('Please enter required info to sign up') }}</p>
     <form action="{{ route('register.post') }}" method="POST" class="md:w-3/4">
         @csrf
-        <x-input label="{{ __('Username') }}" name="username" placeholder="{{ __('Enter unique username') }}" />
-        <x-input label="{{ __('Email') }}" name="email" placeholder="{{ __('Enter your email') }}" />
-        <x-input label="{{ __('Password') }}" name="password" type="password"
+        <x-input class="mt-6" label="{{ __('Username') }}" name="username"
+            placeholder="{{ __('Enter unique username') }}" />
+        <x-input class="mt-6" label="{{ __('Email') }}" name="email" placeholder="{{ __('Enter your email') }}" />
+        <x-input class="mt-6" label="{{ __('Password') }}" name="password" type="password"
             placeholder="{{ __('Fill in password') }}" />
-        <div class="flex flex-col">
+        <div class="flex flex-col mt-6 relative">
             <label for="password_confirmation" class=" text-base font-bold pt-1">{{ __('Repeat Password') }}</label>
             <input
                 class="mt-2 w-full @error('password') border-red-500 @enderror border border-input-color-default  rounded-lg focus:border-brand-primary focus:outline-none px-6 py-4 placeholder:text-sm"
                 type="password" value="{{ old('password_confirmation') }}" id="password_confirmation"
                 name="password_confirmation" placeholder="{{ __('Repeat Password') }}">
             @error('password_confirmation')
-                <p class="text-red-500 text-xs flex items-center"><img class="pr-1" width="20" height="20"
-                        src="{{ URL::asset('images/error.png') }}" alt="error">
+                <p class="text-red-500 text-xs absolute top-24 flex items-center"><img class="pr-1" width="20"
+                        height="20" src="{{ URL::asset('images/error.png') }}" alt="error">
                     {{ $message }}</p>
             @enderror
         </div>
