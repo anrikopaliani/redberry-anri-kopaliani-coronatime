@@ -4,10 +4,10 @@
     <p class="pb-2 pt-4 opacity-50">{{ __('Please enter required info to sign up') }}</p>
     <form action="{{ route('register.post') }}" method="POST" class="md:w-3/4">
         @csrf
-        <x-input class="mt-6" label="{{ __('Username') }}" name="username"
-            placeholder="{{ __('Enter unique username') }}" />
-        <x-input class="mt-6" label="{{ __('Email') }}" name="email" placeholder="{{ __('Enter your email') }}" />
-        <x-input class="mt-6" label="{{ __('Password') }}" name="password" type="password"
+        <x-input class="mt-9" label="{{ __('Username') }}" name="username" placeholder="{{ __('Enter unique username') }}"
+            hint="{{ __('messages.Username should be unique, min 3 symbols') }}" />
+        <x-input class="mt-9" label="{{ __('Email') }}" name="email" placeholder="{{ __('Enter your email') }}" />
+        <x-input class="mt-9" label="{{ __('Password') }}" name="password" type="password"
             placeholder="{{ __('Fill in password') }}" />
         <div class="flex flex-col mt-6 relative">
             <label for="password_confirmation" class=" text-base font-bold pt-1">{{ __('Repeat Password') }}</label>
