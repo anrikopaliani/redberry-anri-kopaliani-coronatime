@@ -36,10 +36,16 @@ class FetchCountries extends Command
 			if (is_null($countryExists)) {
 				Country::create([
 					'code' => $country->code,
-					'name' => json_encode($country->name),
+					'name' => [
+						'en' => $country->name->en,
+						'ka' => $country->name->ka,
+					],
 				]);
 			} else {
-				$countryExists->name = json_encode($country->name);
+				$countryExists->name = [
+					'en' => $country->name->en,
+					'ka' => $country->name->ka,
+				];
 				$countryExists->update();
 			}
 
