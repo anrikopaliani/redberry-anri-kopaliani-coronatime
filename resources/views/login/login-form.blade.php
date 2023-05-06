@@ -10,7 +10,7 @@
             placeholder="{{ __('messages.Fill in password') }}" />
         <div class=" w-full flex justify-between py-6 items-center">
             <div>
-                <input type="checkbox" class="focus:accent-form-btn-color active:accent-form-btn-colo text-white"
+                <input type="checkbox" class="focus:accent-form-btn-color active:accent-form-btn-color text-white"
                     name="remember_me" value="1" id="remember_me">
                 <label for="remember_me"
                     class=" font-semibold  md:text-base text-xs">{{ __('messages.Remember this device') }}</label>
