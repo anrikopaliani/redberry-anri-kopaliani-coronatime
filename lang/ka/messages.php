@@ -36,4 +36,8 @@ return [
 	'Statistics by country'                      => 'სტატისტიკები ქვეყნების მიხედვით',
 	'Location'                                   => 'ლოკაცია',
 	'recovered'                                  => 'გამოჯანმრთელებული',
+	'New password'                               => 'ახალი პაროლი',
+	'Repeat password'                            => 'გაიმეორეთ პაროლი',
+	'SAVE CHANGES'                               => 'ცვლილების შენახვა',
+	'Enter new password'                         => 'ჩაწერეთ ახალი პაროლი',
 ];

@@ -5,10 +5,10 @@
         @csrf
         <input type="text" name="token" value="{{ $token }}" hidden>
         <input type="text" name="email" hidden value="{{ $email }}">
-        <x-input label="{{ __('New password') }}" name="password" type="password"
-            placeholder="{{ __('Enter new password') }}" />
-        <x-input label="{{ __('Repeat password') }}" name="password_confirmation" type="password"
-            placeholder="{{ __('Repeat password') }}" />
-        <x-button text="{{ __('SAVE CHANGES') }}" />
+        <x-input class="mt-6" label="{{ __('messages.New password') }}" name="password" type="password"
+            placeholder="{{ __('messages.Enter new password') }}" />
+        <x-input class="mt-6" label="{{ __('messages.Repeat password') }}" name="password_confirmation"
+            type="password" placeholder="{{ __('messages.Repeat password') }}" />
+        <x-button text="{{ __('messages.SAVE CHANGES') }}" />
     </form>
 </x-layout>
