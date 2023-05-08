@@ -40,4 +40,7 @@ return [
 	'Enter new password'                         => 'Enter new password',
 	'Repeat password'                            => 'Repeat password',
 	'SAVE CHANGES'                               => 'SAVE CHANGES',
+	'SIGN IN'                                    => 'SIGN IN',
+	'Your account is confirmed, you can sign in' => 'Your account is confirmed, you can sign in
+	',
 ];

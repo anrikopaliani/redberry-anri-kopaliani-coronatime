@@ -40,4 +40,6 @@ return [
 	'Repeat password'                            => 'გაიმეორეთ პაროლი',
 	'SAVE CHANGES'                               => 'ცვლილების შენახვა',
 	'Enter new password'                         => 'ჩაწერეთ ახალი პაროლი',
+	'SIGN IN'                                    => 'შესვლა',
+	'Your account is confirmed, you can sign in' => 'თქვენი ანგარიში დადასტურებულია, შეგიძლიათ შესვლა',
 ];
