@@ -14,8 +14,7 @@ class LoginController extends Controller
 		$username_or_email = $validated['username'];
 		$password = $validated['password'];
 		$user = User::where('username', $username_or_email)->first();
-		$remember_me = (!empty($request->remember_device)) ? true : false;
-
+		$remember_me = $request->has('remember_me') ? true : false;
 		if (empty($user)) {
 			$user = User::where('email', $username_or_email)->first();
 		}

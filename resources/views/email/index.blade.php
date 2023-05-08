@@ -65,7 +65,7 @@
     <img src="{{ URL::asset('images/email-image.png') }}" alt="">
     <h1>{{ $title }}</h1>
     <p>{{ $description }}</p>
-    <a href="{{ $url }}">{{ $buttonText }}</a>
+    <a type="button" href="{{ $url }}">{{ $buttonText }}</a>
 
 </body>
 

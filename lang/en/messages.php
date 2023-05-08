@@ -36,4 +36,12 @@ return [
 	'Statistics by country'                      => 'Statistics by country',
 	'Location'                                   => 'Location',
 	'recovered'                                  => 'recovered',
+	'New password'                               => 'New password',
+	'Enter new password'                         => 'Enter new password',
+	'Repeat password'                            => 'Repeat password',
+	'SAVE CHANGES'                               => 'SAVE CHANGES',
+	'SIGN IN'                                    => 'SIGN IN',
+	'Your account is confirmed, you can sign in' => 'Your account is confirmed, you can sign in
+	',
+	'Your password has been updated successfully' => 'Your password has been updated successfully',
 ];

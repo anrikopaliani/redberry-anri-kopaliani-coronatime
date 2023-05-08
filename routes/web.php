@@ -44,6 +44,7 @@ Route::middleware('guest')->group(function () {
 		Route::post('/forgot-password', 'store')->name('password.email');
 		Route::get('/reset-password/{token}', 'create')->name('password.reset');
 		Route::post('/reset-password', 'update')->name('password.update');
+		Route::view('/password-updated', 'email.password-updated')->name('password.updated');
 	});
 	Route::view('/forgot-password', 'password.forgot-password')->name('password.request');
 	Route::view('/password/reset/verify', 'email.verify-email')->name('password.notice');
