@@ -1,5 +1,5 @@
 <x-layout>
-    <x-header class="justify-center pt-14 fixed" />
+    <x-header class="pl-4 justify-start md:justify-center pt-14 fixed" />
     <div class=" h-screen flex flex-col items-center justify-center">
         <img src="{{ URL::asset('images/icons8-checkmark.gif') }}" alt="checkmark">
         <p>{{ __('messages.Your account is confirmed, you can sign in') }}</p>

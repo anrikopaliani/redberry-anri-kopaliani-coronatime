@@ -43,4 +43,5 @@ return [
 	'SIGN IN'                                    => 'SIGN IN',
 	'Your account is confirmed, you can sign in' => 'Your account is confirmed, you can sign in
 	',
+	'Your password has been updated successfully' => 'Your password has been updated successfully',
 ];
