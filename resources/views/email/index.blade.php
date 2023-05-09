@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap');
 
-        body {
+        .body {
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -17,21 +17,21 @@
             font-family: 'Inter';
         }
 
-        h1 {
+        .h1 {
             font-size: 25px;
         }
 
-        p {
+        .p {
             font-size: 18px;
         }
 
-        img {
+        .img {
             width: 60%;
             height: 40%;
             margin: 20px;
         }
 
-        a {
+        .button {
             background: #0FBA68;
             font-weight: bolder;
             padding: 15px 0;
@@ -45,15 +45,15 @@
 
         @media (max-width:700px) {
 
-            h1 {
+            .h1 {
                 font-size: 20px;
             }
 
-            p {
+            .p {
                 font-size: 16px;
             }
 
-            a {
+            .button {
                 width: 100%;
             }
         }
@@ -61,11 +61,11 @@
 
 </head>
 
-<body>
-    <img src="{{ URL::asset('images/email-image.png') }}" alt="">
-    <h1>{{ $title }}</h1>
-    <p>{{ $description }}</p>
-    <a type="button" href="{{ $url }}">{{ $buttonText }}</a>
+<body class="body">
+    <img class="img" src="{{ URL::asset('images/email-image.png') }}" alt="">
+    <h1 class="h1">{{ $title }}</h1>
+    <p class="p">{{ $description }}</p>
+    <a class="button" type="button" href="{{ $url }}">{{ $buttonText }}</a>
 
 </body>
 
