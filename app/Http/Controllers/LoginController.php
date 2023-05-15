@@ -21,7 +21,7 @@ class LoginController extends Controller
 
 		if (empty($user)) {
 			return back()->withErrors([
-				'username' => __('Username or email not available in database'),
+				'username' => __('messages.Please provide correct credentials'),
 			])->onlyInput('username');
 		}
 

@@ -43,4 +43,5 @@ return [
 	'SIGN IN'                                     => 'შესვლა',
 	'Your account is confirmed, you can sign in'  => 'თქვენი ანგარიში დადასტურებულია, შეგიძლიათ შესვლა',
 	'Your password has been updated successfully' => 'თქვენი პაროლი წარმატებით განახლდა',
+	'Please provide correct credentials'          => 'გთხოვთ, შეიყვანეთ სწორი მონაცემები',
 ];
