@@ -20,17 +20,18 @@
 </head>
 
 <body class="{{ app()->getLocale() == 'en' ? 'font-inter' : '' }}  md:px-28 h-full">
-    <header class="pt-5 flex justify-between items-center w-full h-1/5 px-4 md:px-0">
+
+    <header class="pt-5 w-full flex justify-between px-4">
         <img src="{{ URL::asset('images/coronatime.png') }}" alt="">
-        <div class="flex justify-between md:items-center">
+        <div class="flex items-center">
             @include('partials.langauge_switcher')
-            <div class="hidden md:block">
+            <div>
                 <div class="hidden md:flex md:items-center">
                     <p class="md:pl-10 font-bold leading-5 md:pr-4">{{ auth()->user()->username }}</p>
                     <x-logout-button />
                 </div>
             </div>
-            <div x-data="{ show: false }" class="w-20  flex items-center justify-end md:hidden relative">
+            <div x-data="{ show: false }" class="w-16  flex items-center justify-end md:hidden relative">
                 <button @click="show = !show" class="md:hidden"><img src={{ URL::asset('images/menu.png') }}
                         alt=""></button>
                 <div @click="show = !show" x-show="show" class="flex flex-col items-end absolute top-6 ">
