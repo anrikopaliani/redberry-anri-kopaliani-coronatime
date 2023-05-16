@@ -69,14 +69,11 @@
 </head>
 
 <body class="{{ app()->getLocale() == 'en' ? 'font-inter' : '' }} overflow-y-hidden">
-    <div class="w-full   flex justify-between">
-        <div class="w-full px-4 md:px-44 pt-6 md:pt-10 md:pb-16">
+    <div class="flex justify-between">
+        <div class="w-full md:w-3/5 px-4 md:px-44 pt-6 md:pt-10 md:pb-16">
             {{ $slot }}
         </div>
-
-        <img class="hidden md:block h-screen" src="{{ URL::asset('images/Rectangle 1.jpg') }}" alt="">
-
-
+        <img class="hidden w-2/5 md:block h-screen" src="{{ URL::asset('images/Rectangle 1.jpg') }}" alt="">
     </div>
 
 </body>
