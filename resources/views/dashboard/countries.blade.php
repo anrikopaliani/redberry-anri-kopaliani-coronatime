@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div style="height:547px" class="bg-white overflow-y-scroll ">
+        <div style="height:547px" class="bg-white overflow-y-scroll  custom-scrollbar">
             <div
                 class="flex min-h-49 w-full md:h-12 items-center border border-x-table-color md:border-y-table-color break-words">
                 <p class="pl-2 md:pl-10 w-1/4 md:w-1/5 text-sm md:text-base ">

@@ -15,6 +15,21 @@
             background-position: 24.67px;
             padding-left: 60px;
         }
+
+        ::-webkit-scrollbar {
+            width: 18px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #808189;
+            border-radius: 20px;
+            border: 6px solid transparent;
+            background-clip: content-box;
+        }
     </style>
 
 </head>
@@ -41,7 +56,6 @@
             </div>
         </div>
     </header>
-
     {{ $slot }}
 </body>
 
