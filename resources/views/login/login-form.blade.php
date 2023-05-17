@@ -8,7 +8,7 @@
             placeholder="{{ __('messages.Enter unique username or email') }}" />
         <x-input class="mt-6" label="{{ __('messages.Password') }}" name="password" type="password"
             placeholder="{{ __('messages.Fill in password') }}" />
-        <div class=" w-full flex justify-between py-6 items-center unstyled centered">
+        <div class="w-full md:w-392 flex justify-between py-6 items-center unstyled centered">
             <div>
                 <input type="checkbox" class="mt-5 styled-checkbox" name="remember_me" value="1" id="remember_me">
                 <label for="remember_me" class=" font-semibold  md:text-base text-xs">
@@ -20,9 +20,9 @@
                 ?</a>
         </div>
         <button type="submit"
-            class="bg-form-btn-color mx-auto text-white font-black w-full py-5 rounded-lg">{{ __('LOG IN') }}</button>
+            class="bg-form-btn-color mx-auto text-white font-black w-full md:w-392 py-5 rounded-lg">{{ __('LOG IN') }}</button>
     </form>
-    <p class="text-center pt-4 md:w-3/4">
+    <p class="text-center pt-4 md:w-392">
         <span class="opacity-50">{{ __('messages.Don’t have an account') }}?</span>
         <a href="{{ route('register.get') }}" class="font-bold">{{ __('messages.Sign up for free') }}</a>
     </p>

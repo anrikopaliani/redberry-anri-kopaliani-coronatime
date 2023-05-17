@@ -4,7 +4,7 @@
     <label for="{{ $name }}" class=" text-base font-bold pt-1">{{ $label }}</label>
     <div class="relative">
         <input
-            class="mt-2 w-full 
+            class="mt-2 w-full md:w-392 
                 @error($name) 
                     border-red-500  
                     @elseif(old($name))
