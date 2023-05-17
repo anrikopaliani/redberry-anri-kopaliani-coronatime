@@ -19,45 +19,96 @@
             <div class="pl-2 flex items-center relative h-full  text-sm md:text-base  md:pl-10 w-1/4 md:w-1/5">
                 {{ __('messages.Location') }}
                 <div class="pl-2 flex flex-col ">
-                    <a class="pb-1" href="{!! route('countries-list', ['location=asc', 'search' => request('search')]) !!}">
-                        <x-sorting-asc queryName="location" />
-                    </a>
-                    <a href="{!! route('countries-list', ['location=desc', 'search' => request('search')]) !!}">
-                        <x-sorting-desc queryName="location" />
-                    </a>
+                    @if (request('location') === 'asc')
+                        <a class="pb-1" href="{{ route('countries-list') }}">
+                            <x-sorting-asc queryName="location" />
+                        </a>
+                    @else
+                        <a class="pb-1" href="{!! route('countries-list', ['location=asc', 'search' => request('search')]) !!}">
+                            <x-sorting-asc queryName="location" />
+                        </a>
+                    @endif
+                    @if (request('location') === 'desc')
+                        <a href="{{ route('countries-list') }}">
+                            <x-sorting-desc queryName="location" />
+                        </a>
+                    @else
+                        <a href="{!! route('countries-list', ['location=desc', 'search' => request('search')]) !!}">
+                            <x-sorting-desc queryName="location" />
+                        </a>
+                    @endif
                 </div>
             </div>
             <div class="w-1/4 flex  items-center relative h-full  text-sm md:text-base  md:w-1/5">
                 {{ __('messages.New cases') }}
                 <div class="pl-2 flex flex-col ">
-                    <a class="pb-1" href="{!! route('countries-list', ['cases=asc', 'search' => request('search')]) !!}">
-                        <x-sorting-asc queryName="cases" />
-                    </a>
-                    <a href="{!! route('countries-list', ['cases=desc', 'search' => request('search')]) !!}">
-                        <x-sorting-desc queryName="cases" />
-                    </a>
+                    @if (request('cases') === 'asc')
+                        <a class="pb-1" href="{{ route('countries-list') }}">
+                            <x-sorting-asc queryName="cases" />
+                        </a>
+                    @else
+                        <a class="pb-1" href="{!! route('countries-list', ['cases=asc', 'search' => request('search')]) !!}">
+                            <x-sorting-asc queryName="cases" />
+                        </a>
+                    @endif
+
+                    @if (request('cases') === 'desc')
+                        <a href="{{ route('countries-list') }}">
+                            <x-sorting-desc queryName="cases" />
+                        </a>
+                    @else
+                        <a href="{!! route('countries-list', ['cases=desc', 'search' => request('search')]) !!}">
+                            <x-sorting-desc queryName="cases" />
+                        </a>
+                    @endif
                 </div>
             </div>
             <div class="w-1/4 flex  items-center h-full relative  text-sm md:text-base  md:w-1/5">
                 {{ __('messages.Deaths') }}
                 <div class="pl-2 flex flex-col ">
-                    <a class="pb-1" href="{!! route('countries-list', ['deaths=asc', 'search' => request('search')]) !!}">
-                        <x-sorting-asc queryName="deaths" />
-                    </a>
-                    <a href="{!! route('countries-list', ['deaths=desc', 'search' => request('search')]) !!}">
-                        <x-sorting-desc queryName="deaths" />
-                    </a>
+                    @if (request('deaths') === 'asc')
+                        <a class="pb-1" href="{{ route('countries-list') }}">
+                            <x-sorting-asc queryName="deaths" />
+                        </a>
+                    @else
+                        <a class="pb-1" href="{!! route('countries-list', ['deaths=asc', 'search' => request('search')]) !!}">
+                            <x-sorting-asc queryName="deaths" />
+                        </a>
+                    @endif
+                    @if (request('deaths') === 'desc')
+                        <a href="{{ route('countries-list') }}">
+                            <x-sorting-desc queryName="deaths" />
+                        </a>
+                    @else
+                        <a href="{!! route('countries-list', ['deaths=desc', 'search' => request('search')]) !!}">
+                            <x-sorting-desc queryName="deaths" />
+                        </a>
+                    @endif
                 </div>
             </div>
             <div class="w-1/4 flex  items-center h-full relative  text-sm md:text-base  md:w-1/5">
                 {{ __('messages.recovered') }}
+
                 <div class="pl-2 flex flex-col ">
-                    <a class="pb-1" href="{!! route('countries-list', ['recovered=asc', 'search' => request('search')]) !!}">
-                        <x-sorting-asc queryName="recovered" />
-                    </a>
-                    <a href="{!! route('countries-list', ['recovered=desc', 'search' => request('search')]) !!}">
-                        <x-sorting-desc queryName="recovered" />
-                    </a>
+                    @if (request('recovered') === 'asc')
+                        <a class="pb-1" href="{{ route('countries-list') }}">
+                            <x-sorting-asc queryName="recovered" />
+                        </a>
+                    @else
+                        <a class="pb-1" href="{!! route('countries-list', ['recovered=asc', 'search' => request('search')]) !!}">
+                            <x-sorting-asc queryName="recovered" />
+                        </a>
+                    @endif
+                    @if (request('recovered') === 'desc')
+                        <a href="{{ route('countries-list') }}">
+                            <x-sorting-desc queryName="recovered" />
+                        </a>
+                    @else
+                        <a href="{!! route('countries-list', ['recovered=desc', 'search' => request('search')]) !!}">
+                            <x-sorting-desc queryName="recovered" />
+                        </a>
+                    @endif
+
                 </div>
             </div>
         </div>
