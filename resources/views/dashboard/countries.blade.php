@@ -19,37 +19,45 @@
             <div class="pl-2 flex items-center relative h-full  text-sm md:text-base  md:pl-10 w-1/4 md:w-1/5">
                 {{ __('messages.Location') }}
                 <div class="pl-2 flex flex-col ">
-                    <a class="pb-1" href="{!! route('countries-list', ['location=asc', 'search' => request('search')]) !!}"> <img width="12"
-                            src="{{ URL::asset('images/up.svg') }}" alt=""></a>
-                    <a href="{!! route('countries-list', ['location=desc', 'search' => request('search')]) !!}"> <img width="12" src="{{ URL::asset('images/down.svg') }}"
-                            alt=""></a>
+                    <a class="pb-1" href="{!! route('countries-list', ['location=asc', 'search' => request('search')]) !!}">
+                        <x-sorting-asc queryName="location" />
+                    </a>
+                    <a href="{!! route('countries-list', ['location=desc', 'search' => request('search')]) !!}">
+                        <x-sorting-desc queryName="location" />
+                    </a>
                 </div>
             </div>
             <div class="w-1/4 flex  items-center relative h-full  text-sm md:text-base  md:w-1/5">
                 {{ __('messages.New cases') }}
                 <div class="pl-2 flex flex-col ">
-                    <a class="pb-1" href="{!! route('countries-list', ['cases=asc', 'search' => request('search')]) !!}"> <img width="12"
-                            src="{{ URL::asset('images/up.svg') }}" alt=""></a>
-                    <a href="{!! route('countries-list', ['cases=desc', 'search' => request('search')]) !!}"> <img width="12" src="{{ URL::asset('images/down.svg') }}"
-                            alt=""></a>
+                    <a class="pb-1" href="{!! route('countries-list', ['cases=asc', 'search' => request('search')]) !!}">
+                        <x-sorting-asc queryName="cases" />
+                    </a>
+                    <a href="{!! route('countries-list', ['cases=desc', 'search' => request('search')]) !!}">
+                        <x-sorting-desc queryName="cases" />
+                    </a>
                 </div>
             </div>
             <div class="w-1/4 flex  items-center h-full relative  text-sm md:text-base  md:w-1/5">
                 {{ __('messages.Deaths') }}
                 <div class="pl-2 flex flex-col ">
-                    <a class="pb-1" href="{!! route('countries-list', ['deaths=asc', 'search' => request('search')]) !!}"> <img width="12"
-                            src="{{ URL::asset('images/up.svg') }}" alt=""></a>
-                    <a href="{!! route('countries-list', ['deaths=desc', 'search' => request('search')]) !!}"> <img width="12" src="{{ URL::asset('images/down.svg') }}"
-                            alt=""></a>
+                    <a class="pb-1" href="{!! route('countries-list', ['deaths=asc', 'search' => request('search')]) !!}">
+                        <x-sorting-asc queryName="deaths" />
+                    </a>
+                    <a href="{!! route('countries-list', ['deaths=desc', 'search' => request('search')]) !!}">
+                        <x-sorting-desc queryName="deaths" />
+                    </a>
                 </div>
             </div>
             <div class="w-1/4 flex  items-center h-full relative  text-sm md:text-base  md:w-1/5">
                 {{ __('messages.recovered') }}
                 <div class="pl-2 flex flex-col ">
-                    <a class="pb-1" href="{!! route('countries-list', ['recovered=asc', 'search' => request('search')]) !!}"> <img width="12"
-                            src="{{ URL::asset('images/up.svg') }}" alt=""></a>
-                    <a href="{!! route('countries-list', ['deaths=desc', 'search' => request('search')]) !!}"> <img width="12" src="{{ URL::asset('images/down.svg') }}"
-                            alt=""></a>
+                    <a class="pb-1" href="{!! route('countries-list', ['recovered=asc', 'search' => request('search')]) !!}">
+                        <x-sorting-asc queryName="recovered" />
+                    </a>
+                    <a href="{!! route('countries-list', ['recovered=desc', 'search' => request('search')]) !!}">
+                        <x-sorting-desc queryName="recovered" />
+                    </a>
                 </div>
             </div>
         </div>
@@ -59,10 +67,13 @@
                 <p class="pl-2 md:pl-10 w-1/4 md:w-1/5 text-sm md:text-base ">
                     {{ __('messages.Worldwide') }}
                 </p>
-                <p class="w-1/4 text-sm md:text-base  md:w-1/5">{{ number_format($countryDetails->sum('confirmed')) }}
+                <p class="w-1/4 text-sm md:text-base  md:w-1/5">
+                    {{ number_format($countryDetails->sum('confirmed')) }}
                 </p>
-                <p class="w-1/4 text-sm md:text-base  md:w-1/5">{{ number_format($countryDetails->sum('deaths')) }}</p>
-                <p class="w-1/4 text-sm md:text-base  md:w-1/5">{{ number_format($countryDetails->sum('recovered')) }}
+                <p class="w-1/4 text-sm md:text-base  md:w-1/5">
+                    {{ number_format($countryDetails->sum('deaths')) }}</p>
+                <p class="w-1/4 text-sm md:text-base  md:w-1/5">
+                    {{ number_format($countryDetails->sum('recovered')) }}
                 </p>
             </div>
             @foreach ($list as $country)
@@ -71,9 +82,12 @@
                     <p class="pl-2 md:pl-10 w-1/4 md:w-1/5 text-sm md:text-base ">
                         {{ $country->getTranslation('name', app()->getLocale()) }}
                     </p>
-                    <p class="w-1/4 text-sm md:text-base  md:w-1/5">{{ number_format($country->confirmed) }}</p>
-                    <p class="w-1/4 text-sm md:text-base  md:w-1/5">{{ number_format($country->deaths) }}</p>
-                    <p class="w-1/4 text-sm md:text-base  md:w-1/5">{{ number_format($country->recovered) }}</p>
+                    <p class="w-1/4 text-sm md:text-base  md:w-1/5">
+                        {{ number_format($country->confirmed) }}</p>
+                    <p class="w-1/4 text-sm md:text-base  md:w-1/5">
+                        {{ number_format($country->deaths) }}</p>
+                    <p class="w-1/4 text-sm md:text-base  md:w-1/5">
+                        {{ number_format($country->recovered) }}</p>
                 </div>
             @endforeach
         </div>
