@@ -17,7 +17,13 @@
     <div class="{{ app()->getLocale() == 'ka' ? 'w-650' : '' }} md:w-full bg-table-color rounded-t-lg break-all">
         <div class="flex h-14 items-center ">
             <div class="pl-2 flex items-center relative h-full  text-sm md:text-base  md:pl-10 w-1/4 md:w-1/5">
-                {{ __('messages.Location') }}
+                @if (!request('location'))
+                    <a href="{!! route('countries-list', ['location=desc', 'search' => request('search')]) !!}">{{ __('messages.Location') }}</a>
+                @elseif (request('location') === 'asc')
+                    <a href="{!! route('countries-list', ['location=desc', 'search' => request('search')]) !!}">{{ __('messages.Location') }}</a>
+                @elseif (request('location') === 'desc')
+                    <a href="{!! route('countries-list', ['location=asc', 'search' => request('search')]) !!}">{{ __('messages.Location') }}</a>
+                @endif
                 <div class="pl-2 flex flex-col ">
                     @if (request('location') === 'asc')
                         <a class="pb-1" href="{{ route('countries-list') }}">
@@ -40,7 +46,13 @@
                 </div>
             </div>
             <div class="w-1/4 flex  items-center relative h-full  text-sm md:text-base  md:w-1/5">
-                {{ __('messages.New cases') }}
+                @if (!request('cases'))
+                    <a href="{!! route('countries-list', ['cases=desc', 'search' => request('search')]) !!}">{{ __('messages.New cases') }}</a>
+                @elseif (request('cases') === 'asc')
+                    <a href="{!! route('countries-list', ['cases=desc', 'search' => request('search')]) !!}">{{ __('messages.New cases') }}</a>
+                @elseif (request('cases') === 'desc')
+                    <a href="{!! route('countries-list', ['cases=asc', 'search' => request('search')]) !!}">{{ __('messages.New cases') }}</a>
+                @endif
                 <div class="pl-2 flex flex-col ">
                     @if (request('cases') === 'asc')
                         <a class="pb-1" href="{{ route('countries-list') }}">
@@ -64,7 +76,13 @@
                 </div>
             </div>
             <div class="w-1/4 flex  items-center h-full relative  text-sm md:text-base  md:w-1/5">
-                {{ __('messages.Deaths') }}
+                @if (!request('deaths'))
+                    <a href="{!! route('countries-list', ['deaths=desc', 'search' => request('search')]) !!}"> {{ __('messages.Deaths') }}</a>
+                @elseif (request('deaths') === 'asc')
+                    <a href="{!! route('countries-list', ['deaths=desc', 'search' => request('search')]) !!}"> {{ __('messages.Deaths') }}</a>
+                @elseif (request('deaths') === 'desc')
+                    <a href="{!! route('countries-list', ['deaths=asc', 'search' => request('search')]) !!}"> {{ __('messages.Deaths') }}</a>
+                @endif
                 <div class="pl-2 flex flex-col ">
                     @if (request('deaths') === 'asc')
                         <a class="pb-1" href="{{ route('countries-list') }}">
@@ -87,8 +105,13 @@
                 </div>
             </div>
             <div class="w-1/4 flex  items-center h-full relative  text-sm md:text-base  md:w-1/5">
-                {{ __('messages.recovered') }}
-
+                @if (!request('recovered'))
+                    <a href="{!! route('countries-list', ['recovered=desc', 'search' => request('search')]) !!}">{{ __('messages.recovered') }}</a>
+                @elseif (request('recovered') === 'asc')
+                    <a href="{!! route('countries-list', ['recovered=desc', 'search' => request('search')]) !!}">{{ __('messages.recovered') }}</a>
+                @elseif (request('recovered') === 'desc')
+                    <a href="{!! route('countries-list', ['recovered=asc', 'search' => request('search')]) !!}">{{ __('messages.recovered') }}</a>
+                @endif
                 <div class="pl-2 flex flex-col ">
                     @if (request('recovered') === 'asc')
                         <a class="pb-1" href="{{ route('countries-list') }}">
@@ -118,12 +141,12 @@
                 <p class="pl-2 md:pl-10 w-1/4 md:w-1/5 text-sm md:text-base ">
                     {{ __('messages.Worldwide') }}
                 </p>
-                <p class="w-1/4 text-sm md:text-base  md:w-1/5">
+                <p class="w-1/4 pl-1 text-sm md:text-base  md:w-1/5">
                     {{ number_format($countryDetails->sum('confirmed')) }}
                 </p>
-                <p class="w-1/4 text-sm md:text-base  md:w-1/5">
+                <p class="w-1/4 pl-1  text-sm md:text-base  md:w-1/5">
                     {{ number_format($countryDetails->sum('deaths')) }}</p>
-                <p class="w-1/4 text-sm md:text-base  md:w-1/5">
+                <p class="w-1/4 pl-3  text-sm md:text-base  md:w-1/5">
                     {{ number_format($countryDetails->sum('recovered')) }}
                 </p>
             </div>
@@ -133,11 +156,11 @@
                     <p class="pl-2 md:pl-10 w-1/4 md:w-1/5 text-sm md:text-base ">
                         {{ $country->getTranslation('name', app()->getLocale()) }}
                     </p>
-                    <p class="w-1/4 text-sm md:text-base  md:w-1/5">
+                    <p class="w-1/4 pl-1  text-sm md:text-base  md:w-1/5">
                         {{ number_format($country->confirmed) }}</p>
-                    <p class="w-1/4 text-sm md:text-base  md:w-1/5">
+                    <p class="w-1/4 pl-1  text-sm md:text-base  md:w-1/5">
                         {{ number_format($country->deaths) }}</p>
-                    <p class="w-1/4 text-sm md:text-base  md:w-1/5">
+                    <p class="w-1/4 pl-3  text-sm md:text-base  md:w-1/5">
                         {{ number_format($country->recovered) }}</p>
                 </div>
             @endforeach
