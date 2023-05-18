@@ -20,7 +20,7 @@
                 ?</a>
         </div>
         <button type="submit"
-            class="bg-form-btn-color mx-auto text-white font-black w-full py-5 rounded-lg">{{ __('LOG IN') }}</button>
+            class="bg-form-btn-color mx-auto text-white font-black w-full py-5 rounded-lg">{{ __('messages.LOG IN') }}</button>
     </form>
     <p class="text-center pt-4 md:w-3/4">
         <span class="opacity-50">{{ __('messages.Don’t have an account') }}?</span>
