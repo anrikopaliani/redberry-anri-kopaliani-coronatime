@@ -15,7 +15,7 @@
             <label for="password_confirmation"
                 class=" text-base font-bold pt-1">{{ __('messages.Repeat Password') }}</label>
             <input
-                class="mt-2 w-full @error('password') border-red-500 @enderror border border-input-color-default  rounded-lg focus:border-brand-primary focus:outline-none px-6 py-4 placeholder:text-sm"
+                class="mt-2 w-full md:w-96 @error('password') border-red-500 @enderror border border-input-color-default  rounded-lg focus:border-brand-primary focus:outline-none px-6 py-4 placeholder:text-sm"
                 type="password" value="{{ old('password_confirmation') }}" id="password_confirmation"
                 name="password_confirmation" placeholder="{{ __('messages.Repeat Password') }}">
             @error('password_confirmation')

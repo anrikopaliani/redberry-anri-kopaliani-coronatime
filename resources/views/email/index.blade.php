@@ -8,30 +8,17 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap');
 
-        .body {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Inter';
-        }
-
-        .h1 {
+        h1 {
             font-size: 25px;
         }
 
-        .p {
+        p {
             font-size: 18px;
         }
 
-        .img {
-            width: 60%;
-            height: 40%;
-            margin: 20px;
-        }
-
-        .button {
+        a {
+            display: block;
+            margin: auto;
             background: #0FBA68;
             font-weight: bolder;
             padding: 15px 0;
@@ -43,30 +30,30 @@
             text-align: center;
         }
 
-        @media (max-width:700px) {
-
-            .h1 {
+        @media only screen and (max-width: 600px) {
+            h1 {
                 font-size: 20px;
             }
 
-            .p {
+            p {
                 font-size: 16px;
-            }
-
-            .button {
-                width: 100%;
             }
         }
     </style>
 
 </head>
 
-<body class="body">
-    <img class="img" src="{{ URL::asset('images/email-image.png') }}" alt="">
-    <h1 class="h1">{{ $title }}</h1>
-    <p class="p">{{ $description }}</p>
-    <a class="button" type="button" href="{{ $url }}">{{ $buttonText }}</a>
+<div style="font-family: 'Inter';">
+    <img style="display: block; margin:auto; width: 60%; height:40%; margin-top: 20px;"
+        src="{{ URL::asset('images/email-image.png') }}" alt="">
+    <br />
+    <h1 style="text-align: center;">{{ $title }}</h1>
+    <br />
+    <p style="text-align:center;">{{ $description }}</p>
+    <br />
+    <a style="color:white;font-weight:bolder;text-decoration:none;" type="button"
+        href="{{ $url }}">{{ $buttonText }}</a>
 
-</body>
+</div>
 
 </html>
