@@ -16,15 +16,15 @@
             padding-left: 60px;
         }
 
-        ::-webkit-scrollbar {
+        .custom-scrollbar::-webkit-scrollbar {
             width: 18px;
         }
 
-        ::-webkit-scrollbar-track {
+        .custom-scrollbar::-webkit-scrollbar-track {
             background-color: transparent;
         }
 
-        ::-webkit-scrollbar-thumb {
+        .custom-scrollbar::-webkit-scrollbar-thumb {
             background-color: #808189;
             border-radius: 20px;
             border: 6px solid transparent;
