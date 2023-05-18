@@ -21,9 +21,9 @@
         </div>
         <button type="submit"
             class="bg-form-btn-color mx-auto text-white font-black w-full md:w-392 py-5 rounded-lg">{{ __('LOG IN') }}</button>
+        <p class="text-center pt-4 md:w-392">
+            <span class="opacity-50">{{ __('messages.Don’t have an account') }}?</span>
+            <a href="{{ route('register.get') }}" class="font-bold">{{ __('messages.Sign up for free') }}</a>
+        </p>
     </form>
-    <p class="text-center pt-4 md:w-392">
-        <span class="opacity-50">{{ __('messages.Don’t have an account') }}?</span>
-        <a href="{{ route('register.get') }}" class="font-bold">{{ __('messages.Sign up for free') }}</a>
-    </p>
 </x-form-layout>
