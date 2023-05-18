@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 
 class RevalidateBackHistory
 {
@@ -14,7 +16,7 @@ class RevalidateBackHistory
 	 *
 	 * @return mixed
 	 */
-	public function handle($request, Closure $next)
+	public function handle($request, Closure $next): Response | RedirectResponse
 	{
 		$response = $next($request);
 		return $response->header('Cache-Control', 'nocache, no-store, max-age=0, must-revalidate')
