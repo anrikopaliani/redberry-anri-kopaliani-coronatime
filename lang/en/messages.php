@@ -45,4 +45,5 @@ return [
 	',
 	'Your password has been updated successfully' => 'Your password has been updated successfully',
 	'Please provide correct credentials'          => 'Please provide correct credentials',
+	'account is not verified'                     => 'account is not verified',
 ];

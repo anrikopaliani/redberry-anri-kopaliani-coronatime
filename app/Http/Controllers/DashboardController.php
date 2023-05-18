@@ -4,13 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Country;
 use App\Models\CountryStatistic;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 
 class DashboardController extends Controller
 {
-	public function worldwide(): View
+	public function worldwide(): View | RedirectResponse
 	{
+		$user = Auth::user();
+
+		if (!$user->email_verified_at) {
+			Auth::logout();
+			return back()->withErrors(['username' => __('messages.account is not verified')]);
+		}
 		$newCases = CountryStatistic::all()->sum('confirmed');
 		$recovered = CountryStatistic::all()->sum('recovered');
 		$deaths = CountryStatistic::all()->sum('deaths');
@@ -22,8 +30,15 @@ class DashboardController extends Controller
 		]);
 	}
 
-	public function countries(): View
+	public function countries(): View | RedirectResponse
 	{
+		$user = Auth::user();
+
+		if (!$user->email_verified_at) {
+			Auth::logout();
+			return back()->withErrors(['username' => __('messages.account is not verified')]);
+		}
+
 		$stats = Country::query()->join('country_statistics', 'country_statistics.code', 'countries.code')->get()->all();
 		$countryDetails = collect($stats);
 
