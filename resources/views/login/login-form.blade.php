@@ -1,7 +1,7 @@
 <x-form-layout>
     <x-header />
-    <h3 class="mt-2 md:mt-7 text-2xl font-bold">{{ __('Welcome back') }}</h3>
-    <p class="pb-16 pt-4 opacity-50">{{ __('Please enter your details') }}</p>
+    <h3 class="mt-2 md:mt-7 text-2xl font-bold">{{ __('messages.Welcome back') }}</h3>
+    <p class="pb-16 pt-4 opacity-50">{{ __('messages.Please enter your details') }}</p>
     <form class="[&>*:nth-child(2)]:pt-6   md:w-3/4 w-full " action="{{ route('login.post') }}" method="POST">
         @csrf
         <x-input label="{{ __('messages.Username') }}" name="username"

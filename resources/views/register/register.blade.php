@@ -4,7 +4,7 @@
     <p class="pb-2 pt-4 md:pt-2 opacity-50">{{ __('messages.Please enter required info to sign up') }}</p>
     <form action="{{ route('register.post') }}" method="POST" class="md:w-3/4">
         @csrf
-        <x-input class="mt-9" label="{{ __('messages.Username') }}" name="username"
+        <x-input class="mt-1" label="{{ __('messages.Username') }}" name="username"
             placeholder="{{ __('messages.Enter unique username') }}"
             hint="{{ __('messages.Username should be unique, min 3 symbols') }}" />
         <x-input class="mt-9" label="{{ __('messages.Email') }}" name="email"
