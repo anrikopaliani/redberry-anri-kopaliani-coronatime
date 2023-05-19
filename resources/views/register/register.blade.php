@@ -1,7 +1,7 @@
 <x-form-layout>
     <x-header />
-    <h3 class="mt-2 md:mt-6   text-2xl font-bold">{{ __('messages.Welcome to Coronatime') }}</h3>
-    <p class="pb-2 pt-4 opacity-50">{{ __('messages.Please enter required info to sign up') }}</p>
+    <h3 class="mt-2 md:mt-5   text-2xl font-bold">{{ __('messages.Welcome to Coronatime') }}</h3>
+    <p class="pb-2 pt-4 md:pt-2 opacity-50">{{ __('messages.Please enter required info to sign up') }}</p>
     <form action="{{ route('register.post') }}" method="POST" class="md:w-3/4">
         @csrf
         <x-input class="mt-9" label="{{ __('messages.Username') }}" name="username"
@@ -27,7 +27,7 @@
         <button type="submit"
             class="bg-form-btn-color text-white font-black w-full py-5 mt-8 rounded-lg">{{ __('messages.SIGN UP') }}</button>
     </form>
-    <p class="text-center pt-4 md:w-3/4 pb-2"><span
+    <p class="text-center pt-4 md:pt-2 md:w-3/4 pb-2"><span
             class="opacity-50">{{ __('messages.Already have an account') }}?</span> <a href="{{ route('login.get') }}"
             class="font-bold">{{ __('messages.Log In') }}</a></p>
 
