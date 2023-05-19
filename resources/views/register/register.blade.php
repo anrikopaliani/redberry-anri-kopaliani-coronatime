@@ -1,7 +1,7 @@
 <x-form-layout>
     <x-header />
-    <h3 class="mt-2 md:mt-6   text-2xl font-bold">{{ __('Welcome to Coronatime') }}</h3>
-    <p class="pb-2 pt-4 opacity-50">{{ __('Please enter required info to sign up') }}</p>
+    <h3 class="mt-2 md:mt-6   text-2xl font-bold">{{ __('messages.Welcome to Coronatime') }}</h3>
+    <p class="pb-2 pt-4 opacity-50">{{ __('messages.Please enter required info to sign up') }}</p>
     <form action="{{ route('register.post') }}" method="POST" class="md:w-3/4">
         @csrf
         <x-input class="mt-9" label="{{ __('messages.Username') }}" name="username"
