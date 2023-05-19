@@ -68,7 +68,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="{{ app()->getLocale() == 'en' ? 'font-inter' : '' }} overflow-y-hidden">
+<body class="{{ app()->getLocale() == 'en' ? 'font-inter' : '' }}" style="overflow-y: hidden;">
     <div class="flex justify-between">
         <div class="w-full md:w-3/5 px-4 md:px-44 pt-6 md:pt-10 md:pb-16">
             {{ $slot }}
