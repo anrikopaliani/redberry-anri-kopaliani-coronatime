@@ -130,22 +130,25 @@ class AuthTest extends TestCase
 	{
 		$this->withoutMiddleware();
 
-		$name = 'test1';
-		$email = 'example2@gmail.com';
+		$name = fake()->name();
+		$email = fake()->email();
 		$password = 'test_password';
 
 		$user = User::factory()->create([
-			'username'         => $name,
-			'email'            => $email,
-			'password'         => bcrypt($password),
+			'username'          => $name,
+			'email'             => $email,
+			'password'          => bcrypt($password),
+			'remember_token'    => null,
 		]);
 
+		$this->assertEmpty($user->getRememberToken());
 		$response = $this->post('/login', [
 			'username'    => $name,
 			'password'    => $password,
 			'remember_me' => true,
 		]);
 
+		$this->assertNotEmpty(User::find($user->id)->getRememberToken());
 		$response->assertRedirect('/dashboard');
 
 		$this->assertAuthenticatedAs($user);
