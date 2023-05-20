@@ -113,4 +113,13 @@ class ResetPasswordTest extends TestCase
 		$this->assertTrue(Hash::check('newpassword', User::find($user->id)->password));
 		Event::assertDispatched(PasswordReset::class);
 	}
+
+	public function test_password_reset_form_page_accessible()
+	{
+		$user = User::factory()->create();
+		$token = Password::createToken($user);
+		$response = $this->get(route('password.reset', ['token' => $token]));
+
+		$response->assertViewIs('password.reset-password');
+	}
 }
