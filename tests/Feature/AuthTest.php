@@ -176,4 +176,14 @@ class AuthTest extends TestCase
 
 		$response->assertSessionHasErrors(['password']);
 	}
+
+	public function test_email_confirmed_notice_page_accessible()
+	{
+		$user = User::factory()->create(['email_verified_at' => null]);
+
+		$response = $this->actingAs($user)->get(route('confirmed'));
+
+		$response->assertViewIs('email.email-confirmed');
+		$this->assertGuest();
+	}
 }
