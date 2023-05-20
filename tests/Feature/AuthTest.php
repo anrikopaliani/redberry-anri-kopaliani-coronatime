@@ -86,8 +86,8 @@ class AuthTest extends TestCase
 	{
 		$this->withoutMiddleware();
 
-		$name = 'test';
-		$email = 'example1@gmail.com';
+		$name = fake()->name();
+		$email = fake()->email();
 		$password = 'test_password';
 
 		User::factory()->create([
@@ -108,8 +108,8 @@ class AuthTest extends TestCase
 	{
 		$this->withoutMiddleware();
 
-		$name = 'test3';
-		$email = 'example3@gmail.com';
+		$name = fake()->name();
+		$email = fake()->email();
 		$password = 'test_password';
 
 		User::factory()->create([
@@ -152,5 +152,28 @@ class AuthTest extends TestCase
 		$response->assertRedirect('/dashboard');
 
 		$this->assertAuthenticatedAs($user);
+	}
+
+	public function test_if_user_exists_but_password_is_invalid()
+	{
+		$this->withoutMiddleware();
+
+		$name = fake()->name();
+		$email = fake()->email();
+		$password = 'test_password';
+
+		$user = User::factory()->create([
+			'username'         => $name,
+			'email'            => $email,
+			'password'         => bcrypt($password),
+		]);
+
+		$response = $this->post('/login', [
+			'username'    => $name,
+			'password'    => '1234',
+			'remember_me' => true,
+		]);
+
+		$response->assertSessionHasErrors(['password']);
 	}
 }
