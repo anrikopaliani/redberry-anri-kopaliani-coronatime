@@ -67,4 +67,69 @@ class DashboardTest extends TestCase
 		$response->assertRedirect(route('login.get'));
 		$this->assertGuest();
 	}
+
+	public function test_searching_funcionality()
+	{
+		$user = User::factory()->create();
+		$response = $this->actingAs($user)->get(route('countries-list', ['search' => 'Afghanistan']));
+
+		$response->assertSee('Afghanistan');
+		$response->assertDontSee('Albania');
+	}
+
+	public function test_location_descend_functionality()
+	{
+		$user = User::factory()->create();
+		$response = $this->actingAs($user)->get(route('countries-list', ['location' => 'desc']));
+		$response->assertSeeInOrder(['Zimbabwe', 'Zambia']);
+	}
+
+	public function test_location_ascend_functionality()
+	{
+		$user = User::factory()->create();
+		$response = $this->actingAs($user)->get(route('countries-list', ['location' => 'asc']));
+		$response->assertSeeInOrder(['Afghanistan', 'Albania']);
+	}
+
+	public function test_cases_descend_functionality()
+	{
+		$user = User::factory()->create();
+		$response = $this->actingAs($user)->get(route('countries-list', ['cases' => 'desc']));
+		$response->assertSeeInOrder(['Fiji', 'Colombia']);
+	}
+
+	public function test_cases_ascend_functionality()
+	{
+		$user = User::factory()->create();
+		$response = $this->actingAs($user)->get(route('countries-list', ['cases' => 'asc']));
+		$response->assertSeeInOrder(['Indonesia', 'Portugal']);
+	}
+
+	public function test_deaths_ascend_functionality()
+	{
+		$user = User::factory()->create();
+		$response = $this->actingAs($user)->get(route('countries-list', ['deaths' => 'asc']));
+		$response->assertSeeInOrder(['Finland', 'Botswana']);
+	}
+
+	public function test_deaths_descend_functionality()
+	{
+		$user = User::factory()->create();
+		$response = $this->actingAs($user)->get(route('countries-list', ['deaths' => 'desc']));
+		$response->assertSeeInOrder(['Cuba', 'Liechtenstein']);
+	}
+
+	public function test_recovered_ascend_functionality()
+	{
+		$user = User::factory()->create();
+		$response = $this->actingAs($user)->get(route('countries-list', ['recovered' => 'asc']));
+		$response->assertSeeInOrder(['Papua New Guinea', 'Serbia']);
+	}
+
+	public function test_recovered_descend_functionality()
+	{
+		$user = User::factory()->create();
+		$response = $this->actingAs($user)->get(route('countries-list', ['recovered' => 'desc']));
+		$response->assertSeeInOrder(['Turkey', 'Luxembourg']);
+	}
 }
