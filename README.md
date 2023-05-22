@@ -2,11 +2,11 @@
 
 # Coronatime
 
-Coronatime - არის პლატფორმა სადაც შეგვიძლია დავრეგისტრირდეთ, გავიაროთ ავტორიზაცია(ასევე აღვადგინოთ პაროლი თუ დაგვავიწყდა) და ვნახოთ დღევანდელ დღეს მსოფლისოს ქვეყნებში რა სიტუაციაა.
+Coronatime - is a platform where we can register, authorize user(also reset password if we forgot) and see daily covid statistics in different countries.
 
--   რამდენი ახალი შემთხვევა დადასტურდა
--   რამდენი ადამიანი გამოჯანმრთელდა
--   და სამწუხაროდ - რამდენი დაიღუპა
+-   see the number of confirmed cases
+-   see the number of people who recovered from covid
+-   and unfortunately - see the number of people who died
 
 ![Landing (Worldwide)](https://user-images.githubusercontent.com/73776304/236879091-d6792586-d83f-411d-b140-d92c44df2d5a.jpg)
 
@@ -22,7 +22,7 @@ Coronatime - არის პლატფორმა სადაც შეგ�
 
 -   <p><img src="https://e7.pngegg.com/pngimages/906/282/png-clipart-logo-computer-icons-php-wm-logo-text-label.png" width="35" height="35" alt="php"> PHP@7.2 and up</p>
 -   <p><img src="https://e7.pngegg.com/pngimages/1018/16/png-clipart-mysql-workbench-database-mysql-cluster-others-text-logo.png" width="35" height="35" alt="mysql">MYSQL@8 and up</p>
--   <p><img width="35" height="35" height src="https://raw.githubusercontent.com/RedberryInternship/example-project-laravel/master/readme/assets/npm.png" alt="npm">npm@6 and up</p>
+-   <p><img width="35" height="35" height src="https://somospnt.com/images/blog/cover/Que_es_npm.png" alt="npm">npm@6 and up</p>
 -   <p><img width="35" height="35" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Logo-composer-transparent.png?20150215175858" alt="composer">composer@2 and up</p>
 
 ## Tech Stack
