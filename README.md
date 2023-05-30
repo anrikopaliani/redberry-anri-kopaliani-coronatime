@@ -120,4 +120,4 @@ php artisan serve
 
 ## DrawSQL
 
-![Screenshot from 2023-04-12 03-22-37](https://user-images.githubusercontent.com/73776304/236902453-781144bc-4966-41b3-9ea1-f42220acd71f.png)
+![Screenshot from 2023-05-31 01-01-19](https://github.com/RedberryInternship/anri-kopaliani-coronatime/assets/73776304/c3ed3172-14a1-4473-a994-c06e546df9c4)
