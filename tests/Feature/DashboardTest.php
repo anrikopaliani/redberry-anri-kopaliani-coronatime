@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\CountryStatistic;
 use App\Models\User;
 use Tests\TestCase;
 
@@ -95,41 +96,47 @@ class DashboardTest extends TestCase
 	{
 		$user = User::factory()->create();
 		$response = $this->actingAs($user)->get(route('countries-list', ['cases' => 'desc']));
-		$response->assertSeeInOrder(['Fiji', 'Colombia']);
+		$stats = CountryStatistic::orderBy('confirmed', 'desc')->get();
+		$response->assertSeeInOrder([$stats[0]->country, $stats[1]->country]);
 	}
 
 	public function test_cases_ascend_functionality()
 	{
 		$user = User::factory()->create();
 		$response = $this->actingAs($user)->get(route('countries-list', ['cases' => 'asc']));
-		$response->assertSeeInOrder(['Indonesia', 'Portugal']);
+		$stats = CountryStatistic::orderBy('confirmed', 'asc')->get();
+		$response->assertSeeInOrder([$stats[0]->country, $stats[1]->country]);
 	}
 
 	public function test_deaths_ascend_functionality()
 	{
 		$user = User::factory()->create();
 		$response = $this->actingAs($user)->get(route('countries-list', ['deaths' => 'asc']));
-		$response->assertSeeInOrder(['Finland', 'Botswana']);
+		$stats = CountryStatistic::orderBy('deaths', 'asc')->get();
+		$response->assertSeeInOrder([$stats[0]->country, $stats[1]->country]);
 	}
 
 	public function test_deaths_descend_functionality()
 	{
 		$user = User::factory()->create();
 		$response = $this->actingAs($user)->get(route('countries-list', ['deaths' => 'desc']));
-		$response->assertSeeInOrder(['Cuba', 'Liechtenstein']);
+		$stats = CountryStatistic::orderBy('deaths', 'desc')->get();
+		$response->assertSeeInOrder([$stats[0]->country, $stats[1]->country]);
 	}
 
 	public function test_recovered_ascend_functionality()
 	{
 		$user = User::factory()->create();
 		$response = $this->actingAs($user)->get(route('countries-list', ['recovered' => 'asc']));
-		$response->assertSeeInOrder(['Papua New Guinea', 'Serbia']);
+		$stats = CountryStatistic::orderBy('recovered', 'asc')->get();
+		$response->assertSeeInOrder([$stats[0]->country, $stats[1]->country]);
 	}
 
 	public function test_recovered_descend_functionality()
 	{
 		$user = User::factory()->create();
 		$response = $this->actingAs($user)->get(route('countries-list', ['recovered' => 'desc']));
-		$response->assertSeeInOrder(['Turkey', 'Luxembourg']);
+		$stats = CountryStatistic::orderBy('recovered', 'desc')->get();
+		$response->assertSeeInOrder([$stats[0]->country, $stats[1]->country]);
 	}
 }
